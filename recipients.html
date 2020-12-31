@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">	
+		<meta charset="utf-8">
+		<title>Gift Cards</title>		
+		<link rel="stylesheet" type="text/css" href="style.css">
+	
+	</head>
+		
+	<body>
+
+		<div>
+			<img src="giftcard.png" id="card1">
+		</div>
+
+
+		<div class="nav" id="myNav">
+			<div style="align-items: center;">
+				<ul>
+					<li><a href="index.html" class="current">Home</a></li>
+					<li><a href="senders.html">Senders</a></li>
+					<li><a href="recipients.html">Recipients</a></li>
+					<li><a href="giftcards.html">GiftCards</a></li>
+					<li><a href="orders.html">Orders</a></li>
+					<li><a href="order_history.html">Orders History</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="RecipientsHeader">
+		<h1>Recipients</h1>
+		</div>
+	
+		<div>
+			<form>
+				<input type="text" id="recipient" value="Foo Bar">
+				<button id="showTable" style="width: 60px; margin-top: 5px; margin-bottom: 4px;">Submit</button>			
+			</form>
+		</div>
+		
+		<div id="recipientResults" style="display:block">
+			<h3>Orders for Recipient:</h1>
+			<table id= allResults style="display: block; border: 1px;">
+				<tbody>
+					<tr>
+						<th>Recipient Name</th>
+						<th>Recipient Email</th>
+						<th>Gift Card Received</th>
+						<th>Amount</th>
+					</tr>
+					<tr>
+						<td>Foo Bar</td>
+						<td>foo@bar.com</td>
+						<td>Target</td>
+						<td>$5</td>
+					</tr>
+					<tr>
+						<td>Far Car</td>
+						<td>far@car.net</td>
+						<td>Ebay</td>
+						<td>$500</td>
+					</tr>
+					<tr>
+						<td>Fer Zar</td>
+						<td>fer@zar.org</td>
+						<td>Amazon</td>
+						<td>$1</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<p>Recipients can come to this page and search for orders by their name.  This will update
+		the page with all the order lines associated with that particular name.</p>
+		<script>
+			document.getElementById("showTable").addEventListener("click", function(button) {
+				var tab = document.getElementById("allResults")
+				if (tab) {
+					var res = document.getElementById("recipientResults")
+					var resTable = document.getElementById("allResults")
+					var newTable = document.createElement("table")
+					var nTr1 = document.createElement("tr")
+					var nTr2 = document.createElement("tr")
+					var nTh1 = document.createElement("th")
+					var nTh2 = document.createElement("th")
+					var nTh3 = document.createElement("th")
+					var nTh4 = document.createElement("th")
+					var nTd1 = document.createElement("td")
+					var nTd2 = document.createElement("td") 		     
+					var nTd3 = document.createElement("td") 		     
+					var nTd4 = document.createElement("td") 		     				
+					res.removeChild(resTable);
+					newTable.id = "newResults"
+					nTh1.innerHTML = "Recipient Name"
+					nTr1.appendChild(nTh1)
+					nTh2.innerHTML = "Recipient Email"
+					nTr1.appendChild(nTh2)
+					nTh3.innerHTML = "Gift Card Received"
+					nTr1.appendChild(nTh3)
+					nTh4.innerHTML = "Amount"
+					nTr1.appendChild(nTh4)
+					newTable.appendChild(nTr1)
+					nTd1.innerHTML = "Foo Bar"
+					nTr2.appendChild(nTd1)
+					nTd2.innerHTML = "foo@bar.com"
+					nTr2.appendChild(nTd2)
+					nTd3.innerHTML = "Target"
+					nTr2.appendChild(nTd3)
+					nTd4.innerHTML = "$5"
+					nTr2.appendChild(nTd4)
+					newTable.appendChild(nTr2)
+					res.appendChild(newTable)
+					event.preventDefault();
+				} else {
+					event.preventDefault();
+				};
+			});
+		</script>
+
+		<!--a footer-->
+		<div class="footer">
+			<p id="footer" style="padding-top: 22px;">Made by Databaes Team</p>
+			<p id="footer">Oregon State University</p>
+			<p id="footer">Summer 2020</p>
+		</div>
+
+	</body>
+</html>
